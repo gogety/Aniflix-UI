@@ -1,0 +1,13 @@
+<h2>Trending and latest</h2>
+<app-episode-detail [episode]="selectedEpisode"></app-episode-detail>
+<ul  class="episodes">
+    <span
+      *ngFor="let episode of episodes">
+        <img 
+          src="{{episode.imgURL}}" 
+          title="{{episode.anime}}" 
+          (click)="onSelect(episode)"
+          [class.selected]="episode ==selectedEpisode"/>
+      </span>
+</ul>
+<iframe src="http://anilinkz.to/" height="600" width="800">

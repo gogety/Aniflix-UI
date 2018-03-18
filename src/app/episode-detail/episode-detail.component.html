@@ -1,0 +1,8 @@
+<div *ngIf="episode" >
+  <h2 (change)="clearVideo()">{{ episode.anime | uppercase }}</h2>
+  <span (click)="toggleEpisode()" class="badge">{{episode.title}}</span> {{message}}
+</div>
+<div *ngIf="clicked">
+  <video autoplay height="300" controls src="{{link}}">
+  </video>
+</div>
