@@ -21,12 +21,17 @@ export class EpisodesComponent implements OnInit {
   }
 
   onSelect(episode: Episode): void {
-    this.selectedEpisode = episode;
+    if (this.selectedEpisode == episode){
+      this.selectedEpisode = null;
+    }
+    else{
+      this.selectedEpisode = episode;
+    }
   }
 
   getEpisodes():void{
     this.episodeService.getEpisodes()
-      .subscribe(episodes => {this.episodes = episodes; debugger;});
+      .subscribe(episodes => {this.episodes = episodes; });
  
   }
 

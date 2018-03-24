@@ -6,11 +6,12 @@ import {of} from 'rxjs/observable/of'
 import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map, tap} from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class EpisodeService {
 
-  private episodesUrl = "http://192.168.0.184:8081/api/episodes/"
+  private episodesUrl = `${environment.apiURI}/api/episodes/`
  //private episodesUrl = "http://localhost:60327/api/episodes/"
   private  test:Observable<Episode[]>;
 

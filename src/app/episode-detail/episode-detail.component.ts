@@ -12,6 +12,7 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   clicked:boolean;
   link:string;
   message:string;
+  selectedEpisode:Episode;
 
   @Input() episode:Episode;
 
@@ -29,18 +30,25 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
     this.clicked = false;
     this.message = '';
     this.link = '';
+    this.selectedEpisode = null;
   }
 
   toggleEpisode():void{
-    debugger;
+    
     this.clicked = !this.clicked;
-    this.message = 'Fetching video, please wait (~10 sec) ...'
-    this.episodeService.getVideoLink(this.episode)
-      .subscribe(link => {
-        this.link=link;
-        this.message='Link fetched, video loading ...';
-        }
-      );
+    if (!this.clicked){
+      this.clear();
+    }
+    else{
+      this.selectedEpisode = this.episode;
+      this.message = 'Fetching video, please wait (~10 sec) ...'
+      this.episodeService.getVideoLink(this.episode)
+        .subscribe(link => {
+          this.link=link;
+          this.message='Link fetched, video loading ...';
+          }
+        );
+    }
   }
 
 }
