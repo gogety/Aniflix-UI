@@ -1,0 +1,15 @@
+<h2>Trending and latest</h2>
+
+
+<ul  class="animes">
+    <span *ngFor="let anime of animesCache.values()">
+        <img 
+          src="{{anime.imgUrl}}" 
+          title="{{anime.title}}" 
+          (click)="onSelect(anime)"
+          [class.selected]="anime ==selectedAnime"/>
+          <app-anime-detail *ngIf = "anime == selectedAnime" [anime]="selectedAnime"></app-anime-detail>
+      </span>
+
+      
+</ul>

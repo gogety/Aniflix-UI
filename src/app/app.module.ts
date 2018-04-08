@@ -6,18 +6,23 @@ import { EpisodesComponent } from './episodes/episodes.component';
 import { EpisodeDetailComponent } from './episode-detail/episode-detail.component';
 
 import { EpisodeService } from './episode.service';
+import {AnimeService} from './anime.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClient } from 'selenium-webdriver/http';
+import { AnimesComponent } from './animes/animes.component';
+import { AnimeDetailComponent } from './anime-detail/anime-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EpisodesComponent,
     EpisodeDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    AnimesComponent,
+    AnimeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { HttpClient } from 'selenium-webdriver/http';
   ],
   providers: [
     EpisodeService,
-    MessageService
+    MessageService,
+    AnimeService
   ],
   bootstrap: [AppComponent]
 })

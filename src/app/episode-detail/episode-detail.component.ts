@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {Episode} from '../episode';
 import {EpisodeService} from '../episode.service'
+import { empty } from 'rxjs/Observer';
 
 @Component({
   selector: 'app-episode-detail',
@@ -9,46 +10,58 @@ import {EpisodeService} from '../episode.service'
 })
 export class EpisodeDetailComponent implements OnInit, OnChanges {
 
-  clicked:boolean;
+  //clicked:boolean;
   link:string;
   message:string;
-  selectedEpisode:Episode;
+ // selectedEpisode:Episode;
 
   @Input() episode:Episode;
 
   constructor(private episodeService:EpisodeService) { }
 
   ngOnInit() {
-    this.clear();
+    this.fetchLink();
+    
   }
 
   ngOnChanges(){
-    this.clear();
+    this.link = null;
+    this.fetchLink();
   }
 
-  clear(){
-    this.clicked = false;
-    this.message = '';
-    this.link = '';
-    this.selectedEpisode = null;
-  }
-
-  toggleEpisode():void{
-    
-    this.clicked = !this.clicked;
-    if (!this.clicked){
-      this.clear();
-    }
-    else{
-      this.selectedEpisode = this.episode;
-      this.message = 'Fetching video, please wait (~10 sec) ...'
-      this.episodeService.getVideoLink(this.episode)
+  fetchLink(){
+    this.message = 'Fetching video, please wait (~10 sec) ...';
+    this.episodeService.getVideoLink(this.episode)
         .subscribe(link => {
           this.link=link;
           this.message='Link fetched, video loading ...';
           }
         );
-    }
   }
+
+  // clear(){
+  //   this.clicked = false;
+  //   this.message = '';
+  //   this.link = '';
+  //   this.selectedEpisode = null;
+  // }
+
+  // toggleEpisode():void{
+    
+  //   this.clicked = !this.clicked;
+  //   if (!this.clicked){
+  //     this.clear();
+  //   }
+  //   else{
+  //     this.selectedEpisode = this.episode;
+  //     this.message = 'Fetching video, please wait (~10 sec) ...'
+  //     this.episodeService.getVideoLink(this.episode)
+  //       .subscribe(link => {
+  //         this.link=link;
+  //         this.message='Link fetched, video loading ...';
+  //         }
+  //       );
+  //   }
+  //}
 
 }

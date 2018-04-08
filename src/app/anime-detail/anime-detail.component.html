@@ -1,0 +1,14 @@
+<div *ngIf="anime" class="sub-frame">
+  <h2> {{ anime.title | uppercase }} </h2>  
+  <span 
+    *ngFor="let episode of anime.episodes "
+    (click)="selectEpisode(episode)"  
+    class="badge"
+    [class.selected]="episode == selectedEpisode">
+    {{episode.title}}
+  </span> 
+  <app-episode-detail *ngIf="selectedEpisode" [episode]="selectedEpisode"></app-episode-detail>
+  <!--<video *ngIf="clicked" width = "1200px" autoplay controls [src]="link" >
+  </video>-->
+</div>
+

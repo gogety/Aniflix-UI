@@ -1,5 +1,5 @@
 export class Episode {
-    id : number;
+    id : string;
     anime: string;
     imgURL: string;
     title: string;

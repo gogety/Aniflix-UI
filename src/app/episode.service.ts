@@ -31,13 +31,13 @@ export class EpisodeService {
      return this.test;
   }
 
-  getEpisode(id:number):Observable<Episode>{
-    this.log(`Fetching episode with id =${id}`)
-    return of(EPISODES.find(hero=> hero.id===id));
-  }
+  // getEpisode(id:number):Observable<Episode>{
+  //   this.log(`Fetching episode with id =${id}`)
+  //   return of(EPISODES.find(hero=> hero.id===id));
+  // }
 
   getVideoLink(episode:Episode):Observable<string>{
-    this.log(`Fetching video link for episode ${episode.id}`);
+    this.log(`Fetching video link for episode ${episode.title} ${episode.id}`);
     return this.http.get<string>(`${this.episodesUrl}/${episode.id}`)
       .pipe(
         tap(link => this.log(`fetched link`)),

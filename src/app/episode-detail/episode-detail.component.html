@@ -1,11 +1,7 @@
-<div *ngIf="episode" class="sub-frame">
+<!-- <div *ngIf="episode" class="sub-frame">
   <h2> {{ episode.anime | uppercase }} {{message}} </h2>  
-  <!--<img 
-    src="{{episode.imgURL}}" 
-    title="{{episode.anime}}"
-    />-->
   <span 
-    (click)="toggleEpisode()" 
+    (click)="toggleEpisode()"  
     class="badge"
     [class.selected]="episode == selectedEpisode">
     {{episode.title}}
@@ -13,4 +9,6 @@
   <video *ngIf="clicked" width = "1200px" autoplay controls [src]="link" >
   </video>
 </div>
-
+ -->
+ <span *ngIf="!link" >Fetching video, please wait (~10 sec) ...</span>
+<video *ngIf="link" width = "1200px" autoplay controls [src]="link" ></video>
