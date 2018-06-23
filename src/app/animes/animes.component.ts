@@ -10,21 +10,26 @@ import {Anime} from '../anime';
 export class AnimesComponent implements OnInit {
   private selectedAnime:Anime;
   private animesCache:Map<string, Anime>;
+  public animes:Anime[];
 
   constructor(private animeService:AnimeService) { }
 
   ngOnInit() {
+    this.animes=[];
     this.animesCache = new Map<string, Anime>();
     this.getAnimes();
+    
   }
 
   getAnimes(){
     this.animeService.getAnimes()
       .subscribe(animes => {
+        debugger;
         this.addOrUpdateToCache(animes);
       });
     this.animeService.getAnimes()
       .subscribe(animes => {
+        debugger;
         this.addOrUpdateToCache(animes);
       });
   }
@@ -33,7 +38,8 @@ export class AnimesComponent implements OnInit {
     let ani:Anime;
     animes.forEach(anime => {
       if (!this.animesCache.has(anime.id)){
-        this.animesCache.set(anime.id,anime);
+        this.animesCache.set(anime.id,new Anime(anime));
+        this.animes.push(new Anime(anime));
       }
       else{
         ani=this.animesCache.get(anime.id);

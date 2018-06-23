@@ -5,9 +5,19 @@ export class Anime {
   title: string;
   imgUrl: string;
   episodes: Episode[];
-//  detailsURL: string;
-//   videoUrl:string;
+
+  constructor (ani:Anime){
+    this.id = ani.id;
+    this.title = ani.title;
+    this.imgUrl = ani.imgUrl;
+    this.update (ani);
+  }
+
   update(ani:Anime){
     this.episodes = ani.episodes;
-  }
+  };
+
+  /**
+   * name
+   */
 }
