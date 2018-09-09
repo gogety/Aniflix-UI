@@ -15,6 +15,13 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { AnimesComponent } from './animes/animes.component';
 import { AnimeDetailComponent } from './anime-detail/anime-detail.component';
 
+import {StoreModule } from '@ngrx/store';
+import {reducer} from './store/reducers';
+import {AnimeEffects} from './anime.effects';
+
+import {EffectsModule} from '@ngrx/effects';
+import { Effect } from '@ngrx/effects/src/effects_metadata';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +33,12 @@ import { AnimeDetailComponent } from './anime-detail/anime-detail.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({anime:reducer}),
+    EffectsModule.forRoot([AnimeEffects]),
+    //not sure how forRoort and forFeature are different. Does not work with forFeature
+    //StoreModule.forFeature('anime',reducer),
+  //  EffectsModule.forFeature([AnimeEffects])
   ],
   providers: [
     EpisodeService,

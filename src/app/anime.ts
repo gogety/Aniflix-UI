@@ -11,7 +11,7 @@ export class Anime {
     this.title = ani.title;
     this.imgUrl = ani.imgUrl;
     this.update (ani);
-  }
+  };
 
   update(ani:Anime){
     this.episodes = ani.episodes;

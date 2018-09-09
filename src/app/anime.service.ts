@@ -10,19 +10,23 @@ import {of} from 'rxjs/observable/of'
 @Injectable()
 export class AnimeService {
   private animesUrl = `${environment.apiURI}/api/animes`;
-  private test : Observable<Anime[]>;
+  private animes : Observable<Anime[]>;
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getAnimes():Observable<Anime[]>{
+  getAnimes(more:number):Observable<Anime[]>{
     this.log('Fetching Animes');
-    this.test = this.http.get<Anime[]>(this.animesUrl)
+    var url = this.animesUrl;
+    if (more>0){
+      url += `/?more=${more}`;
+    } 
+    this.animes = this.http.get<Anime[]>(url)
       .pipe(
         tap(animes=>this.log(`fetched animes`)),
         catchError(this.handleError('getAnimes',[]))
       );
      // debugger;
-    return this.test;
+    return this.animes;
   }
 
     /**

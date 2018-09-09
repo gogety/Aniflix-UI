@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import{Store} from '@ngrx/store'
+import{AppState} from './store/appstate';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AniFlix';
+
+ // constructor(private store:Store<AppState>){}
 }

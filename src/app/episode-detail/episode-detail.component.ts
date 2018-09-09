@@ -20,7 +20,7 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   constructor(private episodeService:EpisodeService) { }
 
   ngOnInit() {
-    this.fetchLink();
+    //this.fetchLink();
     
   }
 
@@ -30,6 +30,7 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   }
 
   fetchLink(){
+    debugger;
     this.message = 'Fetching video, please wait (~10 sec) ...';
     this.episodeService.getVideoLink(this.episode)
         .subscribe(link => {

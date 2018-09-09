@@ -2,7 +2,8 @@
 
 
 <ul  class="animes">
-    <span *ngFor="let anime of animes">
+    <!-- <span *ngFor="let anime of animes"> -->
+    <span *ngFor="let anime of animes | async">       
         <img 
           src="{{anime.imgUrl}}" 
           title="{{anime.title}}" 
@@ -10,6 +11,8 @@
           [class.selected]="anime ==selectedAnime"/>
           <app-anime-detail *ngIf = "anime == selectedAnime" [anime]="selectedAnime"></app-anime-detail>
       </span>
+    <button (click)="getMore(false)">Load More</button>
+    <button (click)="getMore(true)">Load Much More</button>
 
       
 </ul>
