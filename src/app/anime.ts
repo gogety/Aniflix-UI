@@ -13,7 +13,7 @@ export class Anime {
     this.update (ani);
   };
 
-  update(ani:Anime){
+  update(ani:Anime){ 
     this.episodes = ani.episodes;
   };
 

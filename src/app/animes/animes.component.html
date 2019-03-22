@@ -2,8 +2,9 @@
 
 
 <ul  class="animes">
-    <!-- <span *ngFor="let anime of animes"> -->
-    <span *ngFor="let anime of animes | async">       
+    <span *ngFor="let anime of animes">
+    <!-- <span *ngFor="let anime of animes | async">        -->
+
         <img 
           src="{{anime.imgUrl}}" 
           title="{{anime.title}}" 

@@ -7,6 +7,7 @@ export const LOAD_ANIMES = '[Anime] Load'
 export const LOAD_ANIMES_SUCCESS = '[Anime] LoadSuccess'
 export const ADD_ANIME = '[Anime] Add'
 export const LOAD_MORE = '[Anime] Load More'
+export const LOAD_ANIME = '[Anime] Load Anime'
 
 export class AddAnime implements Action{
     readonly type = ADD_ANIME
@@ -30,5 +31,11 @@ export class LoadMore implements Action{
     constructor(public payload: number){}
 }
 
+export class LoadAnime implements Action{
+    readonly type = LOAD_ANIMES
+
+    constructor (public paylod : Anime){}
+}
+
 //should be renamed "allactions" ? 
-export type Actions = AddAnime | LoadAnimesSuccess | LoadAnimes | LoadMore
+export type Actions = AddAnime | LoadAnimesSuccess | LoadAnimes | LoadMore | LoadAnime

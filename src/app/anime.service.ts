@@ -20,6 +20,7 @@ export class AnimeService {
     if (more>0){
       url += `/?more=${more}`;
     } 
+     debugger
     this.animes = this.http.get<Anime[]>(url)
       .pipe(
         tap(animes=>this.log(`fetched animes`)),
@@ -27,6 +28,19 @@ export class AnimeService {
       );
      // debugger;
     return this.animes;
+  }
+
+  getAnime(anime:Anime):Observable<Anime>{
+    this.log(`Fetching Anime {id} details`);
+    var fullAnime:Observable<Anime> 
+    fullAnime = this.http.get<Anime>(`${this.animesUrl}/${anime.id}`)
+      .pipe(
+        tap(anime=>this.log(`fetched anime ${anime.title}`)),
+        catchError(this.handleError(`getAnime`, anime))
+      );
+
+      return fullAnime;
+    
   }
 
     /**
