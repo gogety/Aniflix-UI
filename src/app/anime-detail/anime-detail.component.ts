@@ -18,10 +18,8 @@ export class AnimeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.selectedEpisode = null;
-    //if this.anime.iscomplete then don't trigge action
     //this.store.dispatch(new AnimeActions.LoadAnime(this.anime));
-    this.animeService.getAnime(this.anime)
-      .subscribe()
+
   }
 
   selectEpisode(episode:Episode):void{

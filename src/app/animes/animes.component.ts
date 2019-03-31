@@ -13,7 +13,7 @@ import * as AnimeActions from '../store/actions'
 })
 export class AnimesComponent implements OnInit {
   private selectedAnime:Anime;
-  private animesCache:Map<string, Anime>;
+  //private animesCache:Map<string, Anime>;
   public animes:Anime[];
   //public animes: Observable<Anime[]>;
 
@@ -22,7 +22,7 @@ export class AnimesComponent implements OnInit {
 
   ngOnInit() {
      this.animes=[];
-     this.animesCache = new Map<string, Anime>();
+    // this.animesCache = new Map<string, Anime>();
      this.getAnimes();
      debugger
      var ani = new Anime(this.animes[0]);
@@ -70,13 +70,16 @@ export class AnimesComponent implements OnInit {
     let ani:Anime;
     debugger
     animes.forEach(anime => {
-      if (!this.animesCache.has(anime.id)){
+      //if (!this.animesCache.has(anime.id)){
+        ani = this.animes.find(x => x.id == anime.id)
+        if (!ani){
         debugger
-        this.animesCache.set(anime.id,new Anime(anime));
-        this.animes.push(new Anime(anime));
+        ani = new Anime(anime);
+       // this.animesCache.set(anime.id,ani);
+        this.animes.push(ani);
       }
       else{
-        ani=this.animesCache.get(anime.id);
+        //ani=this.animesCache.get(anime.id);
         ani.update(anime);
       }
     });
@@ -88,7 +91,15 @@ export class AnimesComponent implements OnInit {
     }
     else{
       this.selectedAnime = anime;
+      if (!anime.fullyLoaded)
+        this.animeService.getAnime(anime)
+        .subscribe(fullAnime => {
+          debugger;
+          this.addOrUpdateToCache([fullAnime]);
+        });
     }
   }
+
+  
 
 }

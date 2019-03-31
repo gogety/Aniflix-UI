@@ -7,9 +7,10 @@ const initialState:Anime = {
     id : 'ABC',
     imgUrl : 'http://www.google.ca',
     episodes : [],
-    //TODO : fix the update thingy...
+    //TODO : fix the update thingy...,
+    fullyLoaded : false,
     update: function(){}
-}
+} 
 
 export function reducer(state: Anime[] = [initialState], action: Actions.Actions){
     switch (action.type){

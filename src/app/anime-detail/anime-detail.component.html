@@ -3,9 +3,10 @@
   <span 
     *ngFor="let episode of anime.episodes "
     (click)="selectEpisode(episode)"  
-    class="badge"
+    class="badge tooltip"
     [class.selected]="episode == selectedEpisode">
     {{episode.title}}
+    <span class="tooltiptext"> {{episode.fullTitle}}</span>
   </span> 
   <app-episode-detail *ngIf="selectedEpisode" [episode]="selectedEpisode"></app-episode-detail>
   <!--<video *ngIf="clicked" width = "1200px" autoplay controls [src]="link" >

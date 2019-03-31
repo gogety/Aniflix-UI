@@ -31,7 +31,7 @@ export class AnimeService {
   }
 
   getAnime(anime:Anime):Observable<Anime>{
-    this.log(`Fetching Anime {id} details`);
+    this.log(`Fetching Anime ${anime.id} details`);
     var fullAnime:Observable<Anime> 
     fullAnime = this.http.get<Anime>(`${this.animesUrl}/${anime.id}`)
       .pipe(
