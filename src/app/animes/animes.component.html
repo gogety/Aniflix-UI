@@ -1,19 +1,37 @@
 <h2>Trending and latest</h2>
 
 
-<ul  class="animes">
-    <span *ngFor="let anime of animes">
-    <!-- <span *ngFor="let anime of animes | async">        -->
 
-        <img 
-          src="{{anime.imgUrl}}" 
-          title="{{anime.title}}" 
-          (click)="onSelect(anime)"
-          [class.selected]="anime ==selectedAnime"/>
-          <app-anime-detail *ngIf = "anime == selectedAnime" [anime]="selectedAnime"></app-anime-detail>
-      </span>
-    <button (click)="getMore(false)">Load More</button>
-    <button (click)="getMore(true)">Load Much More</button>
+  <!-- <ul  class="animes"> -->
+      <!-- <span *ngFor="let anime of animes"> -->
+      <!-- <span *ngFor="let anime of animes | async">        -->
 
-      
-</ul>
+<div class="main">
+    <!-- <div class="content"> --> 
+        <!-- <div class="box"> -->
+            <!-- <div class ="column sidebar"> -->
+              <!-- </div> -->
+            <!-- <div class="column"> -->
+              <!-- <div class="center"> -->
+                <div class="flex cont">
+              <img *ngFor="let anime of animes"
+                src="{{anime.imgUrl}}" 
+                title="{{anime.title}}" 
+                (click)="onSelect(anime)"
+                [class.selected]="anime ==selectedAnime"/>
+                <!-- <app-anime-detail *ngIf = "anime == selectedAnime" [anime]="selectedAnime"></app-anime-detail> -->
+            <!-- </span> -->
+              <div>
+                <button (click)="getMore(false)">Load More</button>
+                <button (click)="getMore(true)">Load Much More</button>
+              </div>
+            </div>
+            <div *ngIf = "selectedAnime" class="flex sidebar"> <app-anime-detail class="sticky" [anime]="selectedAnime"></app-anime-detail></div>
+
+            <!-- </div> -->
+         <!-- </div> -->
+    <!--  </div>-->
+    </div> 
+  <!-- </ul> -->
+ 
+

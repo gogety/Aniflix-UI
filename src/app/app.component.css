@@ -1,4 +1,4 @@
-#section-left {
+/* #section-left {
     float: left;
  }
  
@@ -6,4 +6,14 @@
     float: right;
     width: 220px;
     margin-left: 100px
+ } */
+
+.body {
+   /* position: absolute;
+   top: 50px;
+   right: 0;
+   bottom: 0;
+   left: 0;
+    */
+   display: flex;
  }

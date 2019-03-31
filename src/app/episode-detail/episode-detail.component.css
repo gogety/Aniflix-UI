@@ -40,3 +40,9 @@ img{
     vertical-align: top;
     width: 200px;
 }
+
+.overlay{
+    position: fixed;
+    top:200px;
+    
+}

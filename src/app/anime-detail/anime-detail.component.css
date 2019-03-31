@@ -9,7 +9,8 @@
     left: -1px;
     top: -4px;
     height: 1.8em;
-    margin-right: .8em;
+    /* margin-right: .8em; */
+    margin:.1em;
     border-radius: 4px 0 0 4px;
     vertical-align: top;
 }
@@ -32,14 +33,14 @@
 }
 
 img{
-    /*https://stackoverflow.com/questions/8397049/css-image-resize-percentage-of-itself
-    -webkit-transform: scale(1.5); /* Saf3.1+, Chrome 
+    /*https://stackoverflow.com/questions/8397049/css-image-resize-percentage-of-itself*/
+    /* -webkit-transform: scale(1.5); /* Saf3.1+, Chrome 
     -moz-transform: scale(1.5); /* FF3.5+ 
     -ms-transform: scale(1.5); /* IE9 
     -o-transform: scale(1.5); /* Opera 10.5+ 
     transform: scale(1.5);*/
     vertical-align: top;
-    width: 200px;
+    width: 100%;
 }
 
 
