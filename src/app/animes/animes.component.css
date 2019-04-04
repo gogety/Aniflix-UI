@@ -1,3 +1,9 @@
+img{
+    width:150px;
+
+
+}
+
 img:hover{
     cursor: pointer;
 }
@@ -64,8 +70,9 @@ img.selected{
 
 .cont{
     flex: 4;
-    align-items: center;
+    align-items:baseline;
     flex-wrap: wrap;
+    
 }
  .main {
     /* flex: 1; */
