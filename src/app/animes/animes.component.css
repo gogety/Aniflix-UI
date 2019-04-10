@@ -22,6 +22,7 @@ img.selected{
      /* flex: 1 1 200px; */
      /* flex-direction: column; */
      flex: 1;
+     /* overflow-y:scroll; */
     /* flex-wrap: nowrap; */
     /* overflow: hidden; */
     /* background: #fff; */
@@ -29,7 +30,7 @@ img.selected{
     /* position: fixed; */
     /* align-self: flex-start */
     /* top: 0; */
-    /* height: 120px; */
+    height: 1200px;
     /* width: 100%; */
  }
 
@@ -38,9 +39,9 @@ img.selected{
     position: fixed; 
     /* align-self: flex-start */
     top: 0; 
-    overflow-y: scroll;
-    overflow-x: hidden;
-     height: 100%; 
+    /* overflow-y: scroll; */
+    /* overflow-x: hidden; */
+     /* height: 100%;  */
     /* width: 100%;*/
     
  }

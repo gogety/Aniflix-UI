@@ -3,6 +3,7 @@ import {Anime} from '../anime';
 import {Episode } from '../episode';
 import { AnimeService } from '../anime.service';
 import * as AnimeActions from '../store/actions'
+import { EpisodeService } from '../episode.service';
 
 @Component({
   selector: 'app-anime-detail',
@@ -14,21 +15,23 @@ export class AnimeDetailComponent implements OnInit {
   @Input() anime:Anime;
   selectedEpisode:Episode;
   
-  constructor(private animeService : AnimeService) { }
+  constructor(private animeService : AnimeService, private episodeService:EpisodeService) { }
 
   ngOnInit() {
     this.selectedEpisode = null;
+    this.episodeService.getSelectedEpisode().subscribe({
+      next: ep => this.selectedEpisode = ep
+    })
     //this.store.dispatch(new AnimeActions.LoadAnime(this.anime));
-
   }
 
   selectEpisode(episode:Episode):void{
-   // debugger;
+    debugger;
     if (this.selectedEpisode == episode){
-      this.selectedEpisode = null;
+      this.episodeService.setSelectedEpisode(null);
     }
     else {
-      this.selectedEpisode = episode;
+      this.episodeService.setSelectedEpisode(episode);
     }
   }
 

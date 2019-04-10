@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {Episode} from '../episode';
 import {EpisodeService} from '../episode.service'
 import { empty } from 'rxjs/Observer';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-episode-detail',
@@ -13,15 +14,23 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   //clicked:boolean;
   link:string;
   message:string;
- // selectedEpisode:Episode;
+  episode:Episode;
 
-  @Input() episode:Episode;
+ // @Input() episode:Episode;
+
 
   constructor(private episodeService:EpisodeService) { }
 
   ngOnInit() {
     //this.fetchLink();
-    
+    debugger
+    this.episodeService.getSelectedEpisode().subscribe({
+      next: (ep) => {
+        this.link = null;
+        this.episode = ep;
+        this.fetchLink();
+      }
+    });
   }
 
   ngOnChanges(){

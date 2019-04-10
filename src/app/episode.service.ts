@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {EPISODES} from './mock-episodes';
 import {Episode} from './episode';
 import {Observable} from 'rxjs/Observable'
+import {Subject} from 'rxjs/Subject';
 import {of} from 'rxjs/observable/of'
 import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -14,6 +15,7 @@ export class EpisodeService {
   private episodesUrl = `${environment.apiURI}/api/episodes/`
  //private episodesUrl = "http://localhost:60327/api/episodes/"
   private  test:Observable<Episode[]>;
+  private selectedEpisode = new Subject<Episode>();
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -29,6 +31,14 @@ export class EpisodeService {
       );
 
      return this.test;
+  }
+
+  setSelectedEpisode(episode:Episode){
+    this.selectedEpisode.next(episode) ;
+  }
+
+  getSelectedEpisode():Subject<Episode>{
+    return this.selectedEpisode;
   }
 
   // getEpisode(id:number):Observable<Episode>{

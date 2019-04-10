@@ -10,9 +10,11 @@
   </video>
 </div>
  -->
- <span *ngIf="!link" >Fetching video, please wait (~10 sec) ...</span>
+ <div *ngIf = "episode">
+ <span *ngIf="!link" >Fetching video for {{episode.fullTitle}}, please wait (~10 sec) ...</span>
  <div *ngIf="link" ><video width = "100%" autoplay controls [src]="link" ></video>
   <a [href]="link">Download link</a></div>
+</div>
 
 <!-- <video *ngIf="link" width=1000px class="jw-video jw-reset" disableremoteplayback="" webkit-playsinline="" playsinline="" preload="metadata" src="https://www1.mp4upload.com:282/d/swx7f3ljz3b4quuojgve6z2vjpkgta3eoh3lgsjoni2vbor243uhgiua/video.mp4" style="object-fit: fill;"></video> -->
 

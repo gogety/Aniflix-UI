@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
+import {DOCUMENT} from '@angular/common';
 import { AnimeService } from '../anime.service';
 import {Anime} from '../anime';
 import {AppState} from '../store/appstate'
@@ -17,7 +18,7 @@ export class AnimesComponent implements OnInit {
   public animes:Anime[];
   //public animes: Observable<Anime[]>;
 
-  constructor(private animeService:AnimeService, private store: Store<AppState>) { 
+  constructor(private animeService:AnimeService, private store: Store<AppState>,@Inject(DOCUMENT) document) { 
   }
 
   ngOnInit() {
@@ -31,6 +32,17 @@ export class AnimesComponent implements OnInit {
    // this.store.dispatch(new AnimeActions.LoadAnimes);
    
     
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e) {
+     if (window.pageYOffset > 150) {
+       let element = document.getElementById('sidebar');
+       element.classList.add('sticky');
+     } else {
+      let element = document.getElementById('sidebar');
+        element.classList.remove('sticky'); 
+     }
   }
 
   getAnimes(){
