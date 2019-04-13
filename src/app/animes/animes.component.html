@@ -18,7 +18,7 @@
                 src="{{anime.imgUrl}}" 
                 title="{{anime.title}}" 
                 (click)="onSelect(anime)"
-                [class.selected]="anime ==selectedAnime" /> {{anime.title}}
+                [class.selected]="anime ==selectedAnime" /> 
                 <!-- <app-anime-detail *ngIf = "anime == selectedAnime" [anime]="selectedAnime"></app-anime-detail> -->
             <!-- </span> -->
               <div>
@@ -26,7 +26,7 @@
                 <button (click)="getMore(true)">Load Much More</button>
               </div>
             </div>
-            <div *ngIf = "selectedAnime" class="flex sidebar"> <app-anime-detail  id="sidebar" [anime]="selectedAnime"></app-anime-detail></div>
+            <!-- <div *ngIf = "selectedAnime" class="flex sidebar"> <app-anime-detail  id="sidebar" ></app-anime-detail></div> -->
 
             <!-- </div> -->
          <!-- </div> -->

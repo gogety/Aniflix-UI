@@ -15,5 +15,17 @@
    bottom: 0;
    left: 0;
     */
-   display: flex;
- }
+    display: flex;  
+    /* flex-direction: row; */
+   }
+
+.cont{
+   flex: 4;
+   align-items:baseline;
+   flex-wrap: wrap;
+   
+}
+
+.sidebar{
+   flex:1;
+}

@@ -23,7 +23,7 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     //this.fetchLink();
-    debugger
+    //debugger
     this.episodeService.getSelectedEpisode().subscribe({
       next: (ep) => {
         this.link = null;
@@ -39,7 +39,7 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   }
 
   fetchLink(){
-    debugger;
+    //debugger;
     this.message = 'Fetching video, please wait (~10 sec) ...';
     this.episodeService.getVideoLink(this.episode)
         .subscribe(link => {

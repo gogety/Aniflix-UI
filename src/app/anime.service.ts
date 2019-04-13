@@ -6,11 +6,13 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map, tap} from 'rxjs/operators';
 import {environment} from '../environments/environment';
 import {of} from 'rxjs/observable/of'
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AnimeService {
   private animesUrl = `${environment.apiURI}/api/animes`;
   private animes : Observable<Anime[]>;
+  private selectedAnime = new Subject<Anime>();
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -20,14 +22,22 @@ export class AnimeService {
     if (more>0){
       url += `/?more=${more}`;
     } 
-     debugger
+     //debugger
     this.animes = this.http.get<Anime[]>(url)
       .pipe(
         tap(animes=>this.log(`fetched animes`)),
         catchError(this.handleError('getAnimes',[]))
       );
-     // debugger;
+     // //debugger;
     return this.animes;
+  }
+
+  setSelectedAnime(anime:Anime){
+    this.selectedAnime.next(anime);
+  }
+
+  getSelectedAnime():Subject<Anime>{
+    return this.selectedAnime;
   }
 
   getAnime(anime:Anime):Observable<Anime>{

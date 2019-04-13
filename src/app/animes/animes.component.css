@@ -1,7 +1,5 @@
 img{
     width:150px;
-
-
 }
 
 img:hover{
@@ -13,38 +11,6 @@ img.selected{
     border-width: 5px;
     border-color: red;
 }
-
- .sidebar{
-     /* width: 250px ;*/
-     /* display:flex; */
-     /* flex-direction: column;  */
-     /* flex: 1; */
-     /* flex: 1 1 200px; */
-     /* flex-direction: column; */
-     flex: 1;
-     /* overflow-y:scroll; */
-    /* flex-wrap: nowrap; */
-    /* overflow: hidden; */
-    /* background: #fff; */
-    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
-    /* position: fixed; */
-    /* align-self: flex-start */
-    /* top: 0; */
-    height: 1200px;
-    /* width: 100%; */
- }
-
- .sticky{
-    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
-    position: fixed; 
-    /* align-self: flex-start */
-    top: 0; 
-    /* overflow-y: scroll; */
-    /* overflow-x: hidden; */
-     /* height: 100%;  */
-    /* width: 100%;*/
-    
- }
 
  ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
@@ -63,18 +29,6 @@ img.selected{
     min-height: -webkit-min-content;
 }
 
-.flex{
-    display:flex; 
-    /* flex:1; */
-    /* flex-direction: column; */
-}
-
-.cont{
-    flex: 4;
-    align-items:baseline;
-    flex-wrap: wrap;
-    
-}
  .main {
     /* flex: 1; */
     display: flex;
@@ -82,12 +36,6 @@ img.selected{
     align-items: flex-start;
   }
   
-  .content {
-    /* flex: 1; */
-    display: flex;
-    overflow: auto;
-    flex-direction: column; 
-  }
   
   .box {
     min-height: -webkit-min-content;

@@ -24,6 +24,27 @@
     background-color: white;
 }
 
+ .sidebar{
+    /* width: 250px ;*/
+    /* display:flex; */
+    /* flex-direction: column;  */
+    /* flex: 1; */
+    /* flex: 1 1 200px; */
+    /* flex-direction: column; */
+    /* display:flex; */
+    flex: 1;
+    /* overflow-y:scroll; */
+   /* flex-wrap: nowrap; */
+   /* overflow: hidden; */
+   /* background: #fff; */
+   box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+   /* position: fixed; */
+   /* align-self: flex-start */
+   /* top: 0; */
+   /* height: 1200px; */
+   /* width: 100%; */
+} 
+
 .sub-frame{
     border-style:solid;
     border-width: 10px;
@@ -34,11 +55,11 @@
     border-color: lightgray;
     background-color: lightgray;
     /* height: 100%; */
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     overflow-y: scroll;
-    overflow-x:hidden;
+    overflow-x:hidden; */
 }
 
 ::-webkit-scrollbar {
@@ -89,3 +110,16 @@ img{
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+  
+ .sticky{
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    position: fixed; 
+    /* align-self: flex-start */
+    top: 0; 
+    /* overflow-y: scroll; */
+    /* overflow-x: hidden; */
+     /* height: 100%;  */
+    /* width: 100%;*/
+    
+ }

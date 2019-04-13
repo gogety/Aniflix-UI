@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
-import {DOCUMENT} from '@angular/common';
 import { AnimeService } from '../anime.service';
 import {Anime} from '../anime';
 import {AppState} from '../store/appstate'
@@ -18,42 +17,36 @@ export class AnimesComponent implements OnInit {
   public animes:Anime[];
   //public animes: Observable<Anime[]>;
 
-  constructor(private animeService:AnimeService, private store: Store<AppState>,@Inject(DOCUMENT) document) { 
+  constructor(private animeService:AnimeService, private store: Store<AppState>) { 
   }
 
   ngOnInit() {
      this.animes=[];
     // this.animesCache = new Map<string, Anime>();
      this.getAnimes();
-     debugger
-     var ani = new Anime(this.animes[0]);
+     //debugger
+    //  var ani = new Anime(this.animes[0]);
+    this.selectedAnime = null
+    this.animeService.getSelectedAnime().subscribe({
+      next: ani => this.selectedAnime = ani
+    })
     //this.animes = this.store.select('anime');
-   // debugger;
+   // //debugger;
    // this.store.dispatch(new AnimeActions.LoadAnimes);
    
     
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(e) {
-     if (window.pageYOffset > 150) {
-       let element = document.getElementById('sidebar');
-       element.classList.add('sticky');
-     } else {
-      let element = document.getElementById('sidebar');
-        element.classList.remove('sticky'); 
-     }
-  }
 
   getAnimes(){
     this.animeService.getAnimes(0)
       .subscribe(animes => {
-        debugger;
+        //debugger;
         this.addOrUpdateToCache(animes);
       });
     //this.animeService.getAnimes(0)
      // .subscribe(animes => {
-      //  debugger;
+      //  //debugger;
       //  this.addOrUpdateToCache(animes);
       //});
   }
@@ -63,7 +56,7 @@ export class AnimesComponent implements OnInit {
       //this.store.dispatch(new AnimeActions.LoadMore(2));
       this.animeService.getAnimes(2)
         .subscribe(animes => {
-          debugger;
+          //debugger;
           this.addOrUpdateToCache(animes);
         });
     }
@@ -72,7 +65,7 @@ export class AnimesComponent implements OnInit {
            // this.store.dispatch(new AnimeActions.LoadMore(1));
       this.animeService.getAnimes(1)
           .subscribe(animes => {
-            debugger;
+            //debugger;
             this.addOrUpdateToCache(animes);
           });
       }
@@ -80,7 +73,7 @@ export class AnimesComponent implements OnInit {
 
   addOrUpdateToCache(animes:Anime[]){
     let ani:Anime;
-    debugger
+    //debugger
     animes.forEach(anime => {
       //if (!this.animesCache.has(anime.id)){
         ani = this.animes.find(x => x.id == anime.id)
@@ -99,14 +92,17 @@ export class AnimesComponent implements OnInit {
 
   onSelect (anime:Anime):void {
     if (this.selectedAnime == anime){
-      this.selectedAnime = null;
+      //this.selectedAnime = null;
+      this.animeService.setSelectedAnime(null)
     }
     else{
-      this.selectedAnime = anime;
+      //this.selectedAnime = anime;
+      this.animeService.setSelectedAnime(anime)
+
       if (!anime.fullyLoaded)
         this.animeService.getAnime(anime)
         .subscribe(fullAnime => {
-          debugger;
+          //debugger;
           this.addOrUpdateToCache([fullAnime]);
         });
     }
