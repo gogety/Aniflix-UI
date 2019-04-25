@@ -78,7 +78,7 @@ export class AnimesComponent implements OnInit {
       //if (!this.animesCache.has(anime.id)){
         ani = this.animes.find(x => x.id == anime.id)
         if (!ani){
-        debugger
+        //debugger
         ani = new Anime(anime);
        // this.animesCache.set(anime.id,ani);
         this.animes.push(ani);

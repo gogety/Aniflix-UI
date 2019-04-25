@@ -1,18 +1,20 @@
-<div *ngIf="anime" class="sub-frame sidebar" id="sidebar">
+<div *ngIf="anime" class="sub-frame">
   <h2> {{ anime.title | uppercase }} </h2>  
   <img 
   src="{{anime.imgUrl}}" 
   title="{{anime.title}}" >
   <!-- <app-episode-detail *ngIf="selectedEpisode" [episode]="selectedEpisode"></app-episode-detail> -->
 
-  <span 
+  <div 
     *ngFor="let episode of anime.episodes "
-    (click)="selectEpisode(episode)"  
-    class="badge tooltip"
+    (click)="selectEpisode(episode)" 
+    class="item tooltip" 
     [class.selected]="episode == selectedEpisode">
     {{episode.title}}
-    <span class="tooltiptext"> {{episode.fullTitle}}</span>
-  </span> 
+    <!-- <span class="tooltiptext"> {{episode.fullTitle}}</span> -->
+  </div>
+
+  
   <!--<video *ngIf="clicked" width = "1200px" autoplay controls [src]="link" >
   </video>-->
 </div>

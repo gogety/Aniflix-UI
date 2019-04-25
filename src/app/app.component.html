@@ -4,13 +4,15 @@
   </h1>
   <!--<app-episodes></app-episodes>-->
 
-  <app-episode-detail></app-episode-detail>
-
-  <div class = "body">
-    <app-animes class="cont"></app-animes>
-    <app-anime-detail class="sidebar"  ></app-anime-detail>
-
-  </div>
+  <div class = "mainContainer">
+    <div class="colContainer">
+      <app-episode-detail class="player" [ngClass]="{'visible':selectedEpisode}"></app-episode-detail>
+      <div class = "rowContainer">
+        <app-animes class="animes"></app-animes>
+        <app-anime-detail class="sidebar" [ngClass]="{'visible':selectedAnime}" ></app-anime-detail>
+      </div>
+    </div>
+</div>
     <app-messages></app-messages> 
 
 

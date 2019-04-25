@@ -12,7 +12,7 @@
  -->
  <div *ngIf = "episode">
  <span *ngIf="!link" >Fetching video for {{episode.fullTitle}}, please wait (~10 sec) ...</span>
- <div *ngIf="link" ><video width = "100%" autoplay controls [src]="link" ></video>
+ <div *ngIf="link" ><video width = "50%" autoplay controls [src]="link" ></video>
   <a [href]="link">Download link</a></div>
 </div>
 

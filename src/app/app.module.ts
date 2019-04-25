@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { EpisodesComponent } from './episodes/episodes.component';
 import { EpisodeDetailComponent } from './episode-detail/episode-detail.component';
 
 import { EpisodeService } from './episode.service';
@@ -25,7 +24,6 @@ import { Effect } from '@ngrx/effects/src/effects_metadata';
 @NgModule({
   declarations: [
     AppComponent,
-    EpisodesComponent,
     EpisodeDetailComponent,
     MessagesComponent,
     AnimesComponent,

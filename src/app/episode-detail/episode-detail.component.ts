@@ -22,13 +22,14 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   constructor(private episodeService:EpisodeService) { }
 
   ngOnInit() {
-    //this.fetchLink();
-    //debugger
+  
     this.episodeService.getSelectedEpisode().subscribe({
       next: (ep) => {
         this.link = null;
         this.episode = ep;
-        this.fetchLink();
+        if (ep){
+          this.fetchLink();
+        }
       }
     });
   }

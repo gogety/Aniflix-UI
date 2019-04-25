@@ -1,17 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 /* Application-wide Styles */
 h1 {
-    color: #369;
+    color: red;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 250%;
+    font-size: 200%;
   }
   h2, h3 {
-    color: #444;
+    color: salmon;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
   }
-  body {
-    margin: 2em;
+  html, body {
+    /* margin: 2em; */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color:  #3b3d3f;
+   -webkit-overflow-scrolling: touch;
+    
   }
   body, input[text], button {
     color: #888;

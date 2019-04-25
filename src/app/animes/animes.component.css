@@ -1,59 +1,45 @@
 img{
     width:150px;
+    height: 200px;
 }
 
 img:hover{
     cursor: pointer;
 }
 
-img.selected{
-    border-style: solid;
-    border-width: 5px;
-    border-color: red;
+.selected{
+  /* padding: 4px; */
+  background-color: #750000;
 }
 
  ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
-/* optional: show position indicator in red */
+
+/* optional: show position indicator in red
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
-}
+} */
 
-.center{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    min-height: -webkit-min-content;
+.box{
+  width:150px;
+  padding: 0.2em;
 }
-
  .main {
     /* flex: 1; */
     display: flex;
     flex-direction: row; 
-    align-items: flex-start;
+    flex-wrap: wrap;
+    /* align-items: flex-start; */
+    align-items :  baseline;
   }
   
-  
-  .box {
-    min-height: -webkit-min-content;
-    display: flex;
+  .text{
+    color:lightgray;
   }
 
-  .column {
-    padding: 20px;
-    border-right: 1px solid #999;
-  }
   
-  .column > div {
-    height: 2000px;
-    background: red;
-  }
-  
-  .column:nth-child(2) > div {
-     height: auto;
-  }
+
   
   

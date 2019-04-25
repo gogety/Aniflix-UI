@@ -8,24 +8,73 @@
     margin-left: 100px
  } */
 
-.body {
-   /* position: absolute;
-   top: 50px;
-   right: 0;
-   bottom: 0;
-   left: 0;
-    */
-    display: flex;  
-    /* flex-direction: row; */
-   }
+/* 
+:host(.obody){
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+} */
 
-.cont{
+.animes{
    flex: 4;
    align-items:baseline;
    flex-wrap: wrap;
-   
+   /* background-color: #4d4f53; */
+   overflow: auto;
 }
 
-.sidebar{
+.colContainer {
+  display: flex;
+  height: calc(100% - 100px);
+  width: calc(100% - 20px);
+  flex-direction: column;
+ }
+
+ .rowContainer {
    flex:1;
+  display: flex;
+  height: calc(100% - 100px);
+  width: calc(100% - 20px);
+  flex-direction: row;
+}
+
+.mainContainer{
+  display: flex;
+  height: calc(100% - 100px);
+  width: calc(100% - 20px);
+}
+
+ .player{
+   flex:2;
+   flex-grow: 0;
+   -webkit-transition:  1s ease-out;
+   transition: 0.5;
+ }
+
+ .player.visible {
+  flex-grow: 1;
+
+} 
+
+ .sidebar {
+   /* background-color: lightgrey; */
+   flex: 1;
+   flex-grow: 0;
+   transition: flex-grow 0.5s;  
+   -webkit-transition:  0.3s ease-out;
+   overflow-y: auto;
+ }
+
+ .sidebar.visible {
+   flex-grow: 1;
+
+ } 
+
+ ::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
 }
