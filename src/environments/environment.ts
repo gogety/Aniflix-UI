@@ -6,6 +6,7 @@
 export const environment = {
   // apiURI: "http://localhost:60327",
   // apiURI: "http://localhost:8083",
+  apiURI:`http://${window.location.hostname}:8083`,
 
   production: false
 };
