@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class EpisodeService {
 
-  private episodesUrl = `${environment.apiURI}/api/episodes/`
+  private episodesUrl = `${environment.apiURI}/api/episodes`
  //private episodesUrl = "http://localhost:60327/api/episodes/"
   private  test:Observable<Episode[]>;
   private selectedEpisode = new Subject<Episode>();

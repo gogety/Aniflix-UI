@@ -46,3 +46,17 @@ img{
     top:200px;
     
 }
+
+
+.item{
+    color:lightgray;
+    border-bottom: gray 1px solid;
+    padding: 5px 0  5px 0    ;
+    text-align: center;
+    background-color: red;
+}
+
+.item:hover {
+    cursor:pointer;
+      
+}

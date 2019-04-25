@@ -7,6 +7,5 @@ export const environment = {
   // apiURI: "http://localhost:60327",
   // apiURI: "http://localhost:8083",
 
-  apiURI:"http://192.168.0.184:8083",
   production: false
 };

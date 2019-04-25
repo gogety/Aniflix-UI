@@ -50,6 +50,10 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
         );
   }
 
+  close(){
+    this.episodeService.setSelectedEpisode(null);
+  }
+
   // clear(){
   //   this.clicked = false;
   //   this.message = '';
