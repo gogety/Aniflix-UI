@@ -1,21 +1,20 @@
-<div *ngIf="anime" class="sub-frame">
-  <h2> {{ anime.title | uppercase }} </h2>  
-  <img 
-  src="{{anime.imgUrl}}" 
-  title="{{anime.title}}" >
-  <!-- <app-episode-detail *ngIf="selectedEpisode" [episode]="selectedEpisode"></app-episode-detail> -->
-
-  <div 
-    *ngFor="let episode of anime.episodes "
-    (click)="selectEpisode(episode)" 
-    class="item tooltip" 
-    [class.selected]="episode == selectedEpisode">
-    {{episode.title}}
-    <!-- <span class="tooltiptext"> {{episode.fullTitle}}</span> -->
-  </div>
-
+<h2 *ngIf="anime" > {{ anime.title | uppercase }} </h2>  
+<div *ngIf="anime" class="sub-frame" >
   
-  <!--<video *ngIf="clicked" width = "1200px" autoplay controls [src]="link" >
-  </video>-->
+  <div *ngIf="!selectedEpisode">
+    <img 
+    
+    src="{{anime.imgUrl}}" 
+    title="{{anime.title}}" >
+</div>
+  <div class="list">
+    <div 
+      *ngFor="let episode of anime.episodes "
+      (click)="selectEpisode(episode)" 
+      class="item tooltip" 
+      [class.selected]="episode == selectedEpisode">
+      {{episode.title}}
+    </div>
+  </div>
 </div>
 

@@ -1,80 +1,56 @@
-/* #section-left {
-    float: left;
- }
- 
- #section-right {
-    float: right;
-    width: 220px;
-    margin-left: 100px
- } */
-
-/* 
-:host(.obody){
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-} */
-
-.animes{
-   flex: 4;
-   align-items:baseline;
-   flex-wrap: wrap;
-   /* background-color: #4d4f53; */
-   overflow: auto;
-}
-
-.colContainer {
-  display: flex;
-  height: calc(100% - 100px);
-  width: calc(100% - 20px);
-  flex-direction: column;
- }
-
- .rowContainer {
-   flex:1;
-  display: flex;
-  height: calc(100% - 100px);
-  width: calc(100% - 20px);
-  flex-direction: row;
-}
-
 .mainContainer{
   display: flex;
   height: calc(100% - 100px);
-  width: calc(100% - 20px);
+  width: calc(100% - 20 px);
+  flex-direction: column
 }
 
- .player{
-   flex:2;
-   flex-grow: 0;
-   -webkit-transition:  1s ease-out;
-   transition: 0.5;
- }
+.rowContainer {
+  display: flex;
+  flex: 0;
+  flex-direction: row;
+  transition: flex-grow 0.5s;  
+  -webkit-transition:  0.5s ease-out;
+  max-height: 50%;
+}
 
- .player.visible {
-  flex-grow: 1;
+.rowContainer.visible{
+  
+  flex:1;
+  border-bottom: solid 2px salmon;
+}
 
+.sidebar {
+  flex:0;
+  overflow-y: auto;
+  flex-basis: 0%;
+}
+
+.sidebar.visible{
+  flex:1;
+}
+
+.player{
+  flex: 0;
+  -webkit-transition:  0.5s ease-out;
+  transition: 0.5;
+}
+
+.player.visible {
+ flex: 3;
 } 
 
- .sidebar {
-   /* background-color: lightgrey; */
+.list{
    flex: 1;
-   flex-grow: 0;
-   transition: flex-grow 0.5s;  
-   -webkit-transition:  0.3s ease-out;
+   /* background-color: #4d4f53; */
    overflow-y: auto;
- }
+}
 
- .sidebar.visible {
-   flex-grow: 1;
-
- } 
-
- ::-webkit-scrollbar {
-  width: 0px;  /* remove scrollbar space */
+  ::-webkit-scrollbar {
+  width: 2px;  /* remove scrollbar space */
   background: transparent;  /* optional: just make scrollbar invisible */
 }
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: salmon;
 }
