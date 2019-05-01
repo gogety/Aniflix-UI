@@ -5,25 +5,45 @@
   flex-direction: column
 }
 
-.rowContainer {
+.colContainer {
   display: flex;
   flex: 0;
-  flex-direction: row;
+  flex-direction: column;
   transition: flex-grow 0.5s;  
   -webkit-transition:  0.5s ease-out;
-  max-height: 50%;
+  max-height: 66;
 }
 
-.rowContainer.visible{
+.colContainer.visible{
   
-  flex:1;
-  border-bottom: solid 2px salmon;
+  flex:2;
+  border-top: solid 2px salmon;
+}
+
+.rowContainer{
+  display:flex;
+  flex-direction: row;
+}
+
+.stretch{
+  justify-content: space-between;
+}
+
+.button{
+  color:red;
+  padding: 20px 20px ;
+  font-size: 150%;
+}
+
+.button:hover{
+  cursor: pointer;
 }
 
 .sidebar {
   flex:0;
   overflow-y: auto;
   flex-basis: 0%;
+  max-height: 100%;
 }
 
 .sidebar.visible{
@@ -34,17 +54,26 @@
   flex: 0;
   -webkit-transition:  0.5s ease-out;
   transition: 0.5;
+  max-width: 100%;;
 }
 
 .player.visible {
- flex: 3;
+ flex: 5;
 } 
 
 .list{
-   flex: 1;
-   /* background-color: #4d4f53; */
-   overflow-y: auto;
+  flex: 1;
+  /* background-color: #4d4f53; */
+  overflow-y: auto;
+  -webkit-transition:  0.5s ease-out;
+  transition: 0.5;
 }
+
+.list.invisible{
+  flex:0
+}
+
+
 
   ::-webkit-scrollbar {
   width: 2px;  /* remove scrollbar space */

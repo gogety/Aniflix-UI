@@ -40,6 +40,10 @@ export class AppComponent {
   //    }
   // }
 
+  clearChoices(){
+    this.animeService.setSelectedAnime(null);
+    this.episodeService.setSelectedEpisode(null);
+  }
 
  // constructor(private store:Store<AppState>){}
 }

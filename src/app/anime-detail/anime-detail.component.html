@@ -1,4 +1,4 @@
-<h2 *ngIf="anime" > {{ anime.title | uppercase }} </h2>  
+<!-- <h2 *ngIf="anime" > {{ anime.title | uppercase }} </h2>   -->
 <div *ngIf="anime" class="sub-frame" >
   
   <div *ngIf="!selectedEpisode">
@@ -7,7 +7,7 @@
     src="{{anime.imgUrl}}" 
     title="{{anime.title}}" >
 </div>
-  <div class="list">
+  <div class="list" [ngClass]="{'episodeSelected':selectedEpisode}">
     <div 
       *ngFor="let episode of anime.episodes "
       (click)="selectEpisode(episode)" 

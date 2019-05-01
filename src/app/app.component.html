@@ -5,13 +5,21 @@
   <!--<app-episodes></app-episodes>-->
 
   <div class = "mainContainer">
-      <div class = "rowContainer" [ngClass]="{'visible':selectedAnime || selectedEpisode}">
-        <app-anime-detail class="sidebar"  [ngClass]="{'visible':selectedAnime}" ></app-anime-detail>
-        <app-episode-detail class="player" [ngClass]="{'visible':selectedEpisode}"></app-episode-detail>
-      </div>
-      <div class = "list">
-        <app-animes ></app-animes>
-      </div>
+      <div class = "list" [ngClass]="{'invisible':selectedEpisode}">
+          <app-animes class = "animes"></app-animes>
+        </div>
+      <div class = "colContainer" [ngClass]="{'visible':selectedAnime}">
+        <div class="rowContainer stretch">
+          <h2 *ngIf="selectedAnime && !selectedEpisode"> {{ selectedAnime?.title }} </h2>  
+          <h2 *ngIf="selectedEpisode"> {{ selectedEpisode.fullTitle}}</h2>  
+          <div (click)="clearChoices()" class="button">X</div>
+        </div>
+        <div class = "rowContainer">
+          <app-episode-detail class="player" [ngClass]="{'visible':selectedEpisode}"></app-episode-detail>
+          <app-anime-detail class="sidebar"  [ngClass]="{'visible':selectedAnime}" ></app-anime-detail>
+        </div>
+    </div>
+     
   </div>
   <app-messages></app-messages> 
 

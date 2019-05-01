@@ -6,7 +6,7 @@
 
 .item{
     color:lightgray;
-    padding: 5px 5px  5px 5px ;
+    padding: 10px 10px  10px 10px ;
     text-align: center;
 }
 
@@ -23,6 +23,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+}
+
+.list.episodeSelected{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* max-height: 50%; */
 }
 
 ::-webkit-scrollbar {
