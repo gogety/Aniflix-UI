@@ -4,6 +4,7 @@ import {Episode } from '../episode';
 import { AnimeService } from '../anime.service';
 import * as AnimeActions from '../store/actions'
 import { EpisodeService } from '../episode.service';
+import {catchError, map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-anime-detail',
@@ -19,7 +20,7 @@ export class AnimeDetailComponent implements OnInit {
   constructor(private animeService : AnimeService, private episodeService:EpisodeService) { }
 
   ngOnInit() {
-     this.selectedEpisode = null;
+    this.selectedEpisode = null;
     this.episodeService.getSelectedEpisode().subscribe({
       next: ep => this.selectedEpisode = ep
     })
@@ -31,7 +32,6 @@ export class AnimeDetailComponent implements OnInit {
   }
 
   selectEpisode(episode:Episode):void{
-    //debugger;
     if (this.selectedEpisode == episode){
       this.episodeService.setSelectedEpisode(null);
     }

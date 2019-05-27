@@ -6,6 +6,12 @@
     background-color: red;
 }
 
+.badge{
+    color: lightgray;
+    background-color: salmon;
+    padding: 2px 2px 2px 2px;
+}
+
 .item:hover {
     cursor:pointer;
       

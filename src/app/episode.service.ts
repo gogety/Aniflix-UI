@@ -46,9 +46,26 @@ export class EpisodeService {
   //   return of(EPISODES.find(hero=> hero.id===id));
   // }
 
-  getVideoLink(episode:Episode):Observable<string>{
+  getEpisode(episode:Episode):Observable<Episode>{
+    this.log(`Fetching Episode ${episode.id} details`);
+    var fullEpisode:Observable<Episode>
+    fullEpisode = this.http.get<Episode>(`${this.episodesUrl}/${episode.id}`)
+      .pipe(
+        tap(epi=> this.log(`fetched episode ${episode.fullTitle}`)),
+        catchError(this.handleError(`getEpisode`, episode))
+      );
+
+    return fullEpisode;
+
+  }
+
+  updateEpisode(episodeOrig:Episode, episodeUpdated:Episode){
+    episodeOrig.sourceRepoLinks = episodeUpdated.sourceRepoLinks;
+  }
+
+  getVideoLink(episode:Episode, repoLinkId:string):Observable<string>{
     this.log(`Fetching video link for episode ${episode.title} ${episode.id}`);
-    return this.http.get<string>(`${this.episodesUrl}/${episode.id}`)
+    return this.http.get<string>(`${this.episodesUrl}/${episode.id}?repoLinkId=${repoLinkId}`)
       .pipe(
         tap(link => this.log(`fetched link`)),
         catchError(this.handleError('getVideoLink',''))

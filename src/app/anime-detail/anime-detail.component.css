@@ -2,6 +2,11 @@
   /* display: flex;
   flex-direction: row;
   flex-wrap:wrap; */
+
+}
+
+.animeSummary{
+  display:flex;
 }
 
 .item{
@@ -30,6 +35,12 @@
     flex-wrap: wrap;
     flex-direction: column;
     /* max-height: 50%; */
+}
+
+.description{
+  white-space: pre-line;
+  padding-left: 10px;
+
 }
 
 ::-webkit-scrollbar {

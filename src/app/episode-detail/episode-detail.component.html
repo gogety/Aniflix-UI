@@ -13,9 +13,12 @@
  <div *ngIf = "episode">
  <div *ngIf="!link" >Fetching video for {{episode.fullTitle}}, please wait (~10 sec) ...</div>
  <div *ngIf="link" ><video width = "100%" autoplay controls [src]="link" ></video>
-  <a [href]="link">Download link</a></div>
-  <div class="item" (click)="close()">Close</div>
+ 
 </div>
+<select (change)= "selectSource($event.target.value)">
+   <option *ngFor="let src of episode.sourceRepoLinks" value={{src}}>{{src.sourceName}}</option>
+ </select>
+  <div class="item" (click)="close()">Close</div>
 
 <!-- <video *ngIf="link" width=1000px class="jw-video jw-reset" disableremoteplayback="" webkit-playsinline="" playsinline="" preload="metadata" src="https://www1.mp4upload.com:282/d/swx7f3ljz3b4quuojgve6z2vjpkgta3eoh3lgsjoni2vbor243uhgiua/video.mp4" style="object-fit: fill;"></video> -->
 

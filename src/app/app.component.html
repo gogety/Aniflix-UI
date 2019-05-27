@@ -10,9 +10,9 @@
         </div>
       <div class = "colContainer" [ngClass]="{'visible':selectedAnime}">
         <div class="rowContainer stretch">
-          <h2 *ngIf="selectedAnime && !selectedEpisode"> {{ selectedAnime?.title }} </h2>  
-          <h2 *ngIf="selectedEpisode"> {{ selectedEpisode.fullTitle}}</h2>  
-          <div (click)="clearChoices()" class="button">X</div>
+          <div><h2 *ngIf="selectedAnime && !selectedEpisode"> {{ selectedAnime?.title }} </h2>  </div>
+          <div><h2 *ngIf="selectedEpisode"> {{selectedEpisode.fullTitle}}</h2></div>  
+          <div *ngIf="selectedAnime || selectedEpisode" (click)="clearChoices()" class="button">X</div>
         </div>
         <div class = "rowContainer">
           <app-episode-detail class="player" [ngClass]="{'visible':selectedEpisode}"></app-episode-detail>

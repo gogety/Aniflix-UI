@@ -1,12 +1,16 @@
 <!-- <h2 *ngIf="anime" > {{ anime.title | uppercase }} </h2>   -->
 <div *ngIf="anime" class="sub-frame" >
   
-  <div *ngIf="!selectedEpisode">
-    <img 
-    
-    src="{{anime.imgUrl}}" 
-    title="{{anime.title}}" >
-</div>
+  <div class="animeSummary" *ngIf="!selectedEpisode">
+    <div>
+      <img 
+      src="{{anime.imgUrl}}" 
+      title="{{anime.title}}" >
+    </div>
+    <!--see https://github.com/angular-translate/angular-translate/issues/595 to transform \n into return lines-->
+    <div class = "description"> {{anime.description}}
+    </div>
+  </div>
   <div class="list" [ngClass]="{'episodeSelected':selectedEpisode}">
     <div 
       *ngFor="let episode of anime.episodes "

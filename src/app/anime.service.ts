@@ -22,7 +22,6 @@ export class AnimeService {
     if (more>0){
       url += `/?more=${more}`;
     } 
-     //debugger
     this.animes = this.http.get<Anime[]>(url)
       .pipe(
         tap(animes=>this.log(`fetched animes`)),

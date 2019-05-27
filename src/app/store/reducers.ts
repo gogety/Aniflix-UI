@@ -7,6 +7,7 @@ const initialState:Anime = {
     id : 'ABC',
     imgUrl : 'http://www.google.ca',
     episodes : [],
+    description: "",
     //TODO : fix the update thingy...,
     fullyLoaded : false,
     update: function(){}

@@ -3,6 +3,7 @@ import {Episode} from '../episode';
 import {EpisodeService} from '../episode.service'
 import { empty } from 'rxjs/Observer';
 import {Subject} from 'rxjs/Subject';
+import { Source } from '../source';
 
 @Component({
   selector: 'app-episode-detail',
@@ -15,6 +16,7 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   link:string;
   message:string;
   episode:Episode;
+  source:Source;
 
  // @Input() episode:Episode;
 
@@ -22,27 +24,44 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   constructor(private episodeService:EpisodeService) { }
 
   ngOnInit() {
-  
+    this.source =null;
     this.episodeService.getSelectedEpisode().subscribe({
       next: (ep) => {
         this.link = null;
         this.episode = ep;
-        if (ep){
-          this.fetchLink();
+        if (ep.sourceRepoLinks && ep.sourceRepoLinks.length >0){
+          this.fetchLink();     
+        }
+        else{
+          debugger
+          this.episodeService.getEpisode(ep)
+          .subscribe(epi => {
+            this.episodeService.updateEpisode(ep,epi);
+            this.source = ep.sourceRepoLinks[0];
+            this.fetchLink();
+          })     
         }
       }
     });
   }
 
+
+  //is this still necessary ?
   ngOnChanges(){
     this.link = null;
+    this.fetchLink();
+  }
+
+  selectSource(src:Source){
+    debugger
+    this.source = src;
     this.fetchLink();
   }
 
   fetchLink(){
     //debugger;
     this.message = 'Fetching video, please wait (~10 sec) ...';
-    this.episodeService.getVideoLink(this.episode)
+    this.episodeService.getVideoLink(this.episode, this.source.id)
         .subscribe(link => {
           this.link=link;
           this.message='Link fetched, video loading ...';
@@ -51,6 +70,8 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   }
 
   close(){
+    this.source=null;
+    this.link = null;
     this.episodeService.setSelectedEpisode(null);
   }
 
