@@ -16,7 +16,7 @@
  
 </div>
 <select (change)= "selectSource($event.target.value)">
-   <option *ngFor="let src of episode.sourceRepoLinks" value={{src}}>{{src.sourceName}}</option>
+   <option  *ngFor="let src of episode.sourceRepoLinks" [value]="src.id">{{src.sourceName}}</option>
  </select>
   <div class="item" (click)="close()">Close</div>
 

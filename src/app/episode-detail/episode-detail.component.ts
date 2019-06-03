@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {Episode} from '../episode';
 import {EpisodeService} from '../episode.service'
-import { empty } from 'rxjs/Observer';
-import {Subject} from 'rxjs/Subject';
+
 import { Source } from '../source';
 
 @Component({
@@ -29,17 +28,19 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
       next: (ep) => {
         this.link = null;
         this.episode = ep;
-        if (ep.sourceRepoLinks && ep.sourceRepoLinks.length >0){
-          this.fetchLink();     
-        }
-        else{
-          debugger
-          this.episodeService.getEpisode(ep)
-          .subscribe(epi => {
-            this.episodeService.updateEpisode(ep,epi);
-            this.source = ep.sourceRepoLinks[0];
-            this.fetchLink();
-          })     
+        if(ep){
+          if (ep.sourceRepoLinks && ep.sourceRepoLinks.length >0){
+            this.fetchLink(ep.sourceRepoLinks[0].id);     
+          }
+          else{
+            debugger
+            this.episodeService.getEpisode(ep)
+            .subscribe(epi => {
+              this.episodeService.updateEpisode(ep,epi);
+              // this.source = ;
+              this.fetchLink(ep.sourceRepoLinks[0].id);
+            })     
+          }
         }
       }
     });
@@ -49,19 +50,19 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
   //is this still necessary ?
   ngOnChanges(){
     this.link = null;
-    this.fetchLink();
+    // this.fetchLink();
   }
 
-  selectSource(src:Source){
+  selectSource(src:string){
     debugger
-    this.source = src;
-    this.fetchLink();
+    // this.source = src;
+    this.fetchLink(src);
   }
 
-  fetchLink(){
+  fetchLink(id:string){
     //debugger;
     this.message = 'Fetching video, please wait (~10 sec) ...';
-    this.episodeService.getVideoLink(this.episode, this.source.id)
+    this.episodeService.getVideoLink(this.episode, id)
         .subscribe(link => {
           this.link=link;
           this.message='Link fetched, video loading ...';
