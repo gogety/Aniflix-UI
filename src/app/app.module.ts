@@ -20,6 +20,7 @@ import {AnimeEffects} from './anime.effects';
 
 import {EffectsModule} from '@ngrx/effects';
 import { Effect } from '@ngrx/effects/src/effects_metadata';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { Effect } from '@ngrx/effects/src/effects_metadata';
     EpisodeDetailComponent,
     MessagesComponent,
     AnimesComponent,
-    AnimeDetailComponent
+    AnimeDetailComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

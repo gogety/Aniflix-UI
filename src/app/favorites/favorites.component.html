@@ -1,0 +1,15 @@
+<h2>Favorites</h2>
+
+<div class="main">
+  <div *ngFor="let anime of animes" 
+    class="box"
+    [class.selected]="anime ==selectedAnime">
+    <div>
+      <img 
+      src="{{anime.imgUrl}}" 
+      title="{{anime.title}}" 
+      (click)="onSelect(anime)">
+    </div>
+    <div class="text">{{anime.title}}</div>
+</div> 
+ 

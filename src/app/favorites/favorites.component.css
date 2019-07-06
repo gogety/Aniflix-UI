@@ -1,0 +1,36 @@
+.main {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    /* align-items: flex-start; */
+    align-items :  baseline;
+    justify-content: center;
+  }
+  
+  .box{
+    width:150px;
+    padding: 0.2em;
+  }
+  
+  img{
+      width:150px;
+      height: 200px;
+  }
+  
+  img:hover{
+      cursor: pointer;
+  }
+  
+  .selected{
+    background-color: red;
+  }
+    
+    .text{
+      color:lightgray;
+    }
+  
+    
+  
+    
+    

@@ -7,12 +7,13 @@
   <div class = "mainContainer">
       <div class = "list" [ngClass]="{'invisible':selectedEpisode}">
           <app-animes class = "animes"></app-animes>
+          <app-favorites class = "animes"></app-favorites>
         </div>
       <div class = "colContainer" [ngClass]="{'visible':selectedAnime}">
         <div class="rowContainer stretch">
-          <div><h2 *ngIf="selectedAnime && !selectedEpisode"> {{ selectedAnime?.title }} </h2>  </div>
+          <div><h2 *ngIf="selectedAnime && !selectedEpisode"> {{ selectedAnime?.title }} <span class="button" (click)="addToFavorites(selectedAnime)">★</span> </h2>  </div>
           <div><h2 *ngIf="selectedEpisode"> {{selectedEpisode.fullTitle}}</h2></div>  
-          <div *ngIf="selectedAnime || selectedEpisode" (click)="clearChoices()" class="button">X</div>
+          <div *ngIf="selectedAnime || selectedEpisode" class="button"><span  (click)="clearChoices()" >X</span> </div>
         </div>
         <div class = "rowContainer">
           <app-episode-detail class="player" [ngClass]="{'visible':selectedEpisode}"></app-episode-detail>

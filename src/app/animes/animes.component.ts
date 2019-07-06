@@ -1,10 +1,7 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { AnimeService } from '../anime.service';
 import {Anime} from '../anime';
-import {AppState} from '../store/appstate'
-import {Store} from '@ngrx/store'
-import {Observable} from 'rxjs/Observable'
-import * as AnimeActions from '../store/actions'
+import { FavoriteService } from '../favorites.service';
 
 @Component({
   selector: 'app-animes',
@@ -17,7 +14,7 @@ export class AnimesComponent implements OnInit {
   public animes:Anime[];
   //public animes: Observable<Anime[]>;
 
-  constructor(private animeService:AnimeService, private store: Store<AppState>) { 
+  constructor(private animeService:AnimeService, private favoriteService:FavoriteService) { 
   }
 
   ngOnInit() {
@@ -77,7 +74,7 @@ export class AnimesComponent implements OnInit {
     animes.forEach(anime => {
       //if (!this.animesCache.has(anime.id)){
         ani = this.animes.find(x => x.id == anime.id)
-        if (!ani){
+      if (!ani){
         //debugger
         ani = new Anime(anime);
        // this.animesCache.set(anime.id,ani);

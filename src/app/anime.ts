@@ -3,6 +3,7 @@ import {Episode} from './episode';
 export class Anime {
   id : string;
   title: string;
+  homeUrl: string;
   imgUrl: string;
   episodes: Episode[];
   fullyLoaded: boolean;
@@ -15,6 +16,7 @@ export class Anime {
     this.episodes = ani.episodes;
     this.fullyLoaded = ani.fullyLoaded;
     this.description = ani.description;
+    this.homeUrl = ani.homeUrl;
   };
 
   update(ani:Anime){ 

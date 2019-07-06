@@ -9,6 +9,7 @@ const initialState:Anime = {
     episodes : [],
     description: "",
     //TODO : fix the update thingy...,
+    homeUrl: 'someURL',
     fullyLoaded : false,
     update: function(){}
 } 

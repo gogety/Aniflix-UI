@@ -6,6 +6,7 @@ import { AnimeService } from './anime.service';
 import { Anime } from './anime';
 import { EpisodeService } from './episode.service';
 import { Episode } from './episode';
+import { FavoriteService } from './favorites.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
   selectedAnime:Anime;
   selectedEpisode:Episode;
 
-  constructor(private animeService:AnimeService, private episodeService:EpisodeService){
+  constructor(private animeService:AnimeService, private episodeService:EpisodeService, private favoriteService:FavoriteService){
   }
 
   ngOnInit(){
@@ -43,6 +44,10 @@ export class AppComponent {
   clearChoices(){
     this.animeService.setSelectedAnime(null);
     this.episodeService.setSelectedEpisode(null);
+  }
+
+  addToFavorites(anime:Anime){
+    this.favoriteService.addFavorite(anime);
   }
 
  // constructor(private store:Store<AppState>){}
