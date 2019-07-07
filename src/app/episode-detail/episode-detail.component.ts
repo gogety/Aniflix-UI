@@ -28,20 +28,26 @@ export class EpisodeDetailComponent implements OnInit, OnChanges {
       next: (ep) => {
         this.link = null;
         this.episode = ep;
-        if(ep){
-          if (ep.sourceRepoLinks && ep.sourceRepoLinks.length >0){
-            this.fetchLink(ep.sourceRepoLinks[0].id);     
-          }
-          else{
-            debugger
-            this.episodeService.getEpisode(ep)
+        // if(ep){
+        //   if (ep.sourceRepoLinks && ep.sourceRepoLinks.length >0){
+        //     this.fetchLink(ep.sourceRepoLinks[0].id);     
+        //   }
+        //   else{
+        //     debugger
+        //     this.episodeService.getEpisode(ep)
+        //     .subscribe(epi => {
+        //       this.episodeService.updateEpisode(ep,epi);
+        //       // this.source = ;
+        //       this.fetchLink(ep.sourceRepoLinks[0].id);
+        //     })     
+        //   }
+        // }
+        this.episodeService.getEpisode(ep)
             .subscribe(epi => {
               this.episodeService.updateEpisode(ep,epi);
               // this.source = ;
               this.fetchLink(ep.sourceRepoLinks[0].id);
             })     
-          }
-        }
       }
     });
   }

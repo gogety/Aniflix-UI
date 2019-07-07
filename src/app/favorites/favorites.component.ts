@@ -45,6 +45,7 @@ export class FavoritesComponent implements OnInit {
       this.animes.push(ani);
     }
     else {
+      debugger
       ani.update(anime);
     }
   }
@@ -63,6 +64,11 @@ export class FavoritesComponent implements OnInit {
             this.addOrUpdateToCacheIndividual(fullAnime);
           });
     }
+  }
+
+  resetFavorites():void{
+    this.favoriteService.clearFavorites();
+    this.animes = [];
   }
 }
 

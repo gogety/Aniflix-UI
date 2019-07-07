@@ -13,16 +13,36 @@ export class Anime {
     this.id = ani.id;
     this.title = ani.title;
     this.imgUrl = ani.imgUrl;
-    this.episodes = ani.episodes;
     this.fullyLoaded = ani.fullyLoaded;
     this.description = ani.description;
     this.homeUrl = ani.homeUrl;
-  };
+    this.episodes = [];
+    ani.episodes.forEach(episode => {
+      this.episodes.push(new Episode(episode));
+    });
+  }
 
   update(ani:Anime){ 
-    this.episodes = ani.episodes;
     this.description = ani.description;
+    this.updateEpisodes(ani.episodes);
   };
+
+  updateEpisodes(episodes:Episode[]){
+    let epi:Episode;
+    episodes.forEach(episode => {
+        epi = this.episodes.find(x => x.id == episode.id)
+      if (!epi){
+        //debugger
+        epi = new Episode(episode);
+       // this.animesCache.set(anime.id,ani);
+        this.episodes.push(epi);
+      }
+      else{
+        //ani=this.animesCache.get(anime.id);
+        epi.update(episode);
+      }
+    });
+  }
 
   /**
    * name

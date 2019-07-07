@@ -82,6 +82,7 @@ export class AnimesComponent implements OnInit {
       }
       else{
         //ani=this.animesCache.get(anime.id);
+        debugger
         ani.update(anime);
       }
     });

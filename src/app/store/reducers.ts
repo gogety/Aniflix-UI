@@ -11,7 +11,8 @@ const initialState:Anime = {
     //TODO : fix the update thingy...,
     homeUrl: 'someURL',
     fullyLoaded : false,
-    update: function(){}
+    update: function(){},
+    updateEpisodes: function(){}
 } 
 
 export function reducer(state: Anime[] = [initialState], action: Actions.Actions){

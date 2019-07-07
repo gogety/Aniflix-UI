@@ -47,9 +47,12 @@ export class EpisodeService {
   // }
 
   getEpisode(episode:Episode):Observable<Episode>{
+    if (!episode)
+      return of( {} as Episode);
     this.log(`Fetching Episode ${episode.id} details`);
     var fullEpisode:Observable<Episode>
-    fullEpisode = this.http.get<Episode>(`${this.episodesUrl}/${episode.id}`)
+
+    fullEpisode = this.http.get<Episode>(`${this.episodesUrl}/${episode.id}?detailsURL=${episode.detailsURL}`)
       .pipe(
         tap(epi=> this.log(`fetched episode ${episode.fullTitle}`)),
         catchError(this.handleError(`getEpisode`, episode))

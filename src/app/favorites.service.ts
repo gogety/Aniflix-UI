@@ -24,10 +24,12 @@ export class FavoriteService {
         });
       }}
       );
-    this.favorites = JSON.parse(localStorage.getItem('favorites'));
-    if (!this.favorites){
-      this.favorites = [];
-    }
+    this.favorites = [];
+    let favs = JSON.parse(localStorage.getItem('favorites'));
+    debugger;
+    favs.forEach( (fav:Anime) => {
+      this.favorites.push(new Anime(fav));
+    });
   }
 
   getFavorites(): Anime[] {
@@ -41,5 +43,10 @@ export class FavoriteService {
   // can I subscribe to my favoritestream to push to favorites ?
   addFavorite(anime: Anime) {
     this.favoriteStream.next(anime);
+  }
+
+  clearFavorites(){
+    this.favorites = [];
+    localStorage.setItem('favorites', '[]');
   }
 }
